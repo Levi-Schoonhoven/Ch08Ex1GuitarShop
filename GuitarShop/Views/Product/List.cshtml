@@ -1,4 +1,4 @@
-﻿@model List<Product>
+﻿@model List<ProductListViewModel>
 @{
     ViewBag.Title = "Product List";
 }
@@ -8,16 +8,16 @@
     <div class="col-sm-2">
             <a asp-controller="Product" asp-action="List" asp-route-id="All" 
                 class="list-group-item 
-                @(ViewBag.SelectedCategoryName == "All" ? "active" : "")">
-                All
+                @Model.CheckActiveCategory( == "All")>
+               
             </a>
 
-            @foreach (Category c in ViewBag.Categories)
+            @foreach (Category c in Model.ProductListViewModel // You are here
             {
 
                     <a asp-controller="Product" asp-action="List" asp-route-id="@c.Name" 
                        class="list-group-item
-                             @(ViewBag.SelectedCategoryName == c.Name ? "active" : "")">
+                             @Model.SelectedCategoryName ==)">
                         @c.Name
                     </a>
 
