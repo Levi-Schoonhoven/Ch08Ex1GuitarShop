@@ -100,7 +100,10 @@ namespace GuitarShop.Areas.Admin.Controllers
             {
                 ViewBag.Action = "Save";
                 ViewBag.Categories = categories;
+
+                string UserMessage = TempData?["You just added the product" + p.ProductID];
                 return View("AddUpdate", product);
+
             }
         }
 

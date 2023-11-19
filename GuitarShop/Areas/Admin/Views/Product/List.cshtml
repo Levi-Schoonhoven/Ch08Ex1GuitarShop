@@ -52,4 +52,11 @@
         </table>
         <a asp-action="Add" class="btn btn-primary">Add New Product</a>
     </div>
+    @{
+        string userMessage = TempData?["UserMessage"]?.ToString() ?? "";
+    }
+    @if (userMessage != "")
+    {
+        <div class="text-success">@userMessage</div>
+    }
 </div>

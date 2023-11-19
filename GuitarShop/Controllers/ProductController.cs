@@ -36,6 +36,8 @@ namespace GuitarShop.Controllers
                 products = context.Products
                     .Where(p => p.Category.Name == id)
                     .OrderBy(p => p.ProductID).ToList();
+
+              
             }
 
             // use ViewBag to pass data to view
@@ -61,11 +63,17 @@ namespace GuitarShop.Controllers
             string imageFilename = product.Code + "_m.png";
 
             // use ViewBag to pass data to view
-            ViewBag.Categories = categories;
-            ViewBag.ImageFilename = imageFilename;
+            //ViewBag.Categories = categories;
+            //ViewBag.ImageFilename = imageFilename;
+
+              var model = new ProductListViewModel
+            {
+                Categories = categories,
+             
+            };
 
             // bind product to view
-            return View(product);
+            return View(model);
         }
     }
 }
